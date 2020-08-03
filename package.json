@@ -11,7 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.16.1",
+    "awesome-typescript-loader": "^5.2.1",
     "graphql": "^15.3.0",
-    "mongoose": "^5.9.26"
+    "mongoose": "^5.9.26",
+    "sinon": "^9.0.2",
+    "sinon-as-promised": "^4.0.3",
+    "source-map-loader": "^1.0.1"
   }
 }

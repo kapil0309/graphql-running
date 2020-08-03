@@ -1,17 +1,14 @@
- FROM registry.access.redhat.com/ubi8/nodejs-12:1-36 AS builder
-    
-     WORKDIR /opt/app-root/src
-     COPY . .
-     RUN npm install
-     RUN npm run build
-     FROM registry.access.redhat.com/ubi8/nodejs-12:1-36
+ FROM node:12
 
-    COPY --from=builder /opt/app-root/src/dist dist
-    COPY package.json .
-    RUN npm install --production
 
-    ENV HOST=0.0.0.0 PORT=5000
+WORKDIR /usr/src/app
 
-    EXPOSE 5000/tcp
+COPY package*.json ./
 
-    CMD npm run serve
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD [ "node", "index.js" ]
